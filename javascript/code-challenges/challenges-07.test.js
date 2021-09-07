@@ -136,17 +136,20 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-//   recipe.ingredients.map((element) => {
-//     element.includes('pounds') {
-//       let n = element.indexOf("pounds");
-// let res = words.substring(n+2,-1);
-// result.push(res) ;
+  recipe.ingredients.map((elemet) => {
+    if (elemet.includes("1 pound")) {
+      result.push(elemet.slice(elemet.indexOf("d") + 2));
+    }
+    if (elemet.includes("sized")) {
+      result.push(elemet.slice(15));
+    }
+    if (elemet.includes("pounds") || elemet.includes("gallons") || elemet.includes("cups")) {
+      result.push(elemet.slice(elemet.indexOf("s") + 2));
+    }
+  });
 
-//     }
+  //   })
 
-
-//   })
-  
   return result;
 };
 
@@ -333,7 +336,7 @@ describe("Testing challenge 5", () => {
   });
 });
 
-xdescribe("Testing challenge 6", () => {
+describe("Testing challenge 6", () => {
   test("It should return a list of foods", () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual([
       "Gruffalo",
