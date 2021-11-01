@@ -25,4 +25,4 @@ To run your tests
 |  Description  | Challange   |
 | ----------- | ----------- |
 |   Array Reverse |  [Challange01](https://github.com/BianQt/data-structures-and-algorithms/tree/main/javascript/array-reverse/README.md)    |
-
+|   Array Insert-Shift |  [Challange02](https://github.com/BianQt/data-structures-and-algorithms/tree/main/javascript/array-insert-shift/README.md)    |
