@@ -26,3 +26,4 @@ To run your tests
 | ----------- | ----------- |
 |   Array Reverse |  [Challange01](https://github.com/BianQt/data-structures-and-algorithms/tree/main/javascript/array-reverse/README.md)    |
 |   Array Insert-Shift |  [Challange02](https://github.com/BianQt/data-structures-and-algorithms/tree/main/javascript/array-insert-shift/README.md)    |
+|   Binary Search |  [Challange03](https://github.com/BianQt/data-structures-and-algorithms/tree/main/javascript/array-binary-search/README.md)    |
