@@ -11,21 +11,21 @@ describe("Linked list", () => {
   });
 
   it("insert to linkedList works", () => {
-    list.insert("a");
-    expect(list.head.value).toEqual("a");
+    list.insert("c");
+    expect(list.head.value).toEqual("c");
   });
 
   // The head property will properly point to the first node in the linked list
   it("head property", () => {
-    expect(list.head.value).toEqual("a");
+    expect(list.head.value).toEqual("c");
   });
 
   // Can properly insert multiple nodes into the linked list
   it("insert multiple nodes", () => {
     list.insert("b");
-    expect(list.tail.value).toEqual("b");
-    list.insert("c");
-    expect(list.tail.value).toEqual("c");
+    expect(list.head.value).toEqual("b");
+    list.insert("a");
+    expect(list.head.value).toEqual("a");
   });
   
   // Will return true when finding a value within the linked list that exists

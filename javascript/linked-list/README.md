@@ -15,7 +15,7 @@ Upon instantiation, an empty Linked List should be created.
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-- Insert : for the insertion of a new node, I used the tail to do that. It has O(1) time complexity.
+- Insert : for the insertion of a new node, I used the head to do that. It has O(1) time complexity.
 - include : I used the for loop to traverse the complete list by following the next pointers. And check if the value exist or not. It hasO(n) time complexity.
 - To string : I used the for loop to traverse the complete list by following the next pointers. And add join the values of the nodes. It hasO(n) time complexity.
 
