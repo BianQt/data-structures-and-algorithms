@@ -4,6 +4,7 @@
 const LinkedList = require("../lib/LinkedList");
 
 let list = new LinkedList();
+let listII = new LinkedList();
 
 describe("Linked list", () => {
   it("creation of linkedList works", () => {
@@ -45,5 +46,42 @@ describe("Linked list", () => {
     let string = list.string();
     expect(string).toEqual("{ a } -> { b } -> { c } -> NULL");
   });
+
+
+  it("creation of linkedList works", () => {
+    expect(listII.head).toBeNull();
+  });
+
+  it("append to linkedList works", () => {
+    listII.append("a");
+    expect(listII.head.value).toEqual("a");
+  });
+
+  // The head property will properly point to the first node in the linked list
+  it("tail property", () => {
+    expect(listII.tail.value).toEqual("a");
+  });
+
+  // Can properly insert multiple nodes into the linked list
+  it("insert multiple nodes", () => {
+    listII.append("b");
+    expect(listII.tail.value).toEqual("b");
+    listII.append("c");
+    expect(listII.tail.value).toEqual("c");
+  });
+
+  it("finding a value and add before it", () => {
+    let index = listII.insert_before('a','d');
+    expect(index).toEqual(true);
+  });
+
+  it("finding a value and add after it", () => {
+    let index = listII.insert_after('a','d');
+    expect(index).toEqual(true);
+  });
+
+
+
+
 
 });

@@ -21,7 +21,7 @@ class LinkedList {
     this.length++;
     return this;
   }
-  
+
   insert(value) {
     let newHead = new Node(value);
     let current = this.head;
@@ -35,6 +35,51 @@ class LinkedList {
     this.length++;
 
     return newHead;
+  }
+
+  insert_before(value, newValue) {
+    let newNode = new Node(newValue);
+    let current = this.head;
+
+    if (this.head.value === value) {
+      this.head = newNode;
+      this.head.next = current;
+      this.length++;
+      return true;
+    } else {
+      while (current.next !== null) {
+        if (current.next.value === value) {
+          newNode.next = current.next;
+          current.next = newNode;
+          this.length++;
+          return true;
+        }
+        current = current.next;
+      }
+    }
+    return null;
+  }
+
+  insert_after(value, newValue) {
+    let newNode = new Node(newValue);
+    let current = this.head;
+    
+    if (this.head.value === value) {
+      newNode.next = current.next;
+      this.head.next = newNode;
+      this.length++;
+      return true;
+    }
+    while (current !== null) {
+      if (current.value === value) {
+        newNode.next = current.next;
+        current.next = newNode;
+        this.length++;
+        return true;
+      }
+      current = current.next;
+    }
+    return null;
   }
 
   include(num) {
