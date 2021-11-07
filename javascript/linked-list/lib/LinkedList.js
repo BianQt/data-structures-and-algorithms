@@ -1,6 +1,6 @@
 "use strict";
 
-const Node = require('./Node')
+const Node = require("./Node");
 
 class LinkedList {
   constructor() {
@@ -9,8 +9,7 @@ class LinkedList {
     this.length = 0;
   }
 
-  
-  insert(value) {
+  append(value) {
     let newNode = new Node(value);
     if (this.head === null) {
       this.head = newNode;
@@ -21,6 +20,21 @@ class LinkedList {
     }
     this.length++;
     return this;
+  }
+  
+  insert(value) {
+    let newHead = new Node(value);
+    let current = this.head;
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = newHead;
+    } else {
+      this.head = newHead;
+      this.head.next = current;
+    }
+    this.length++;
+
+    return newHead;
   }
 
   include(num) {
