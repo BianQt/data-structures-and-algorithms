@@ -97,6 +97,7 @@ class LinkedList {
   }
 
   kth(num) {
+    num = Math.abs(num);
     if (num >= this.length) return "Exception";
     if (num === this.length - 1) return this.head.value;
     if (num === 0) return this.tail.value;

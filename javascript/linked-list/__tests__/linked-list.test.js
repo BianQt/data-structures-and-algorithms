@@ -89,6 +89,10 @@ describe("Linked list", () => {
     let index = listII.kth(3);
     expect(index).toEqual('a');
   });
+  it("test the kth method - return a value when num is not a positive integer", () => {
+    let index = listII.kth(-3);
+    expect(index).toEqual('a');
+  });
   it("test the kth method - return Exception", () => {
     let index = listII.kth(7);
     expect(index).toEqual('Exception');
