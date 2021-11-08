@@ -70,14 +70,19 @@ describe("Linked list", () => {
     expect(listII.tail.value).toEqual("c");
   });
 
-  it("finding a value and add before it", () => {
+  it("If it adds new value before a certain node", () => {
     let index = listII.insert_before('a','d');
     expect(index).toEqual(true);
+    let string = listII.string();
+    expect(string).toEqual("{ d } -> { a } -> { b } -> { c } -> NULL");
+
   });
 
-  it("finding a value and add after it", () => {
-    let index = listII.insert_after('a','d');
+  it("If it adds new value after a certain node", () => {
+    let index = listII.insert_after('a','e');
     expect(index).toEqual(true);
+    let string = listII.string();
+    expect(string).toEqual("{ d } -> { a } -> { e } -> { b } -> { c } -> NULL");
   });
 
 
