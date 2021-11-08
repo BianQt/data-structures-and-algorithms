@@ -63,7 +63,7 @@ class LinkedList {
   insert_after(value, newValue) {
     let newNode = new Node(newValue);
     let current = this.head;
-    
+
     if (this.head.value === value) {
       newNode.next = current.next;
       this.head.next = newNode;
@@ -94,6 +94,18 @@ class LinkedList {
       counter++;
     }
     return null;
+  }
+
+  kth(num) {
+    if (num >= this.length) return "Exception";
+    if (num === this.length - 1) return this.head.value;
+    if (num === 0) return this.tail.value;
+    let current = this.head;
+
+    for (let i = 1; i < this.length - num; i++) {
+      current = current.next;
+    }
+    return current.value;
   }
 
   string() {
