@@ -2,9 +2,11 @@
 
 // Require our linked list implementation
 const LinkedList = require("../lib/LinkedList");
-
+const zip = require("../lib/Zip");
 let list = new LinkedList();
 let listII = new LinkedList();
+let list3 = new LinkedList();
+let list4 = new LinkedList();
 
 describe("Linked list", () => {
   it("creation of linkedList works", () => {
@@ -98,7 +100,17 @@ describe("Linked list", () => {
     expect(index).toEqual('Exception');
   });
 
-
+  it("Return Linked List zipped", () => {
+    list3.append("1");
+    list3.append("2");
+    list3.append("3");
+    list4.append("4");
+    list4.append("5");
+    list4.append("6");
+    zip(list3,list4);
+    let string = list3.string();
+    expect(string).toEqual("{ 1 } -> { 4 } -> { 2 } -> { 5 } -> { 3 } -> { 6 } -> NULL");
+  });
 
 
 
