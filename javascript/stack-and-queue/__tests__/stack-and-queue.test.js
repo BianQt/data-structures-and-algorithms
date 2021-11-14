@@ -2,24 +2,13 @@
 
 const Stack = require('../lib/Stack');
 const Queue = require('../lib/Queue');
-
+const StackQueue = require('../lib/StackQueue');
 
 const stack = new Stack();
 const queue = new Queue();
+const stackQueue = new StackQueue();
 
 describe("Stacks", () => {
-
-  
-
-
-
-// 
-// 
-// 
-// 
-// 
-// Can successfully instantiate an empty queue
-// 
 
   it("Can successfully push onto a stack", () => {
     stack.push(1);
@@ -105,5 +94,25 @@ describe("Stacks", () => {
     expect(popItem).toBeNull();
     expect(queue.peek()).toBeNull();
   });
+
+  it("Can successfully push onto a queue-stack", () => {
+    stackQueue.enqueue(1);
+    expect(stackQueue.stack1.top.value).toEqual(1);
+  });
+
+  it("Can successfully push multiple values onto a queue-stack", () => {
+    stackQueue.enqueue(2);
+    expect(stackQueue.stack1.top.value).toEqual(2);
+    stackQueue.enqueue(3);
+    expect(stackQueue.stack1.top.value).toEqual(3);
+
+  });
+
+
+  it("Can successfully dequeue out of a queue-stack the expected value", () => {
+    let popItem = stackQueue.dequeue();
+    expect(popItem).toEqual(1);
+  });
+
 
 });
