@@ -15,6 +15,7 @@ class Stack {
       newNode.next = this.top;
       this.top = newNode;
     }
+    this.length++;
   }
   pop() {
     if (this.top === null) {
