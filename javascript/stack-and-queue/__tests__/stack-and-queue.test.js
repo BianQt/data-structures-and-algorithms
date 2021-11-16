@@ -3,10 +3,13 @@
 const Stack = require('../lib/Stack');
 const Queue = require('../lib/Queue');
 const StackQueue = require('../lib/StackQueue');
+const AnimalShelter = require('../lib/AnimalShelter');
+const brackets = require('../lib/brackets');
 
 const stack = new Stack();
 const queue = new Queue();
 const stackQueue = new StackQueue();
+const animalShelter = new AnimalShelter();
 
 describe("Stacks", () => {
 
@@ -108,10 +111,41 @@ describe("Stacks", () => {
 
   });
 
-
   it("Can successfully dequeue out of a queue-stack the expected value", () => {
     let popItem = stackQueue.dequeue();
     expect(popItem).toEqual(1);
+  });
+
+  
+  it("Can successfully enqueue into an animalShelter", () => {
+    animalShelter.enqueue('cat');
+    expect(animalShelter.front.value).toEqual('cat');
+  });
+
+  it("Can successfully enqueue multiple values into an animalShelter", () => {
+    animalShelter.enqueue('dog');
+    expect(animalShelter.rear.value).toEqual('dog');
+    animalShelter.enqueue('cat');
+    expect(animalShelter.rear.value).toEqual('cat');
+  });
+
+  it("Can successfully dequeue out of an animalShelter the expected value", () => {
+    let popItem = animalShelter.dequeue('cat');
+    expect(popItem).toEqual('cat');
+  });
+
+  
+  it("Can successfully empty a queue after multiple animalShelter", () => {
+    animalShelter.dequeue('dog');
+    animalShelter.dequeue('cat');
+    expect(animalShelter.front).toBeNull();
+  });
+
+  it("Can successfully represent whether or not the brackets in the string are balanced", () => {
+  
+    expect(brackets('{([])}')).toEqual(true);
+    expect(brackets('{([)}')).toEqual(false);
+    expect(brackets('{([dhfjgkhj])}')).toEqual(true);
   });
 
 
