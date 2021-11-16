@@ -4,6 +4,7 @@ const Stack = require('../lib/Stack');
 const Queue = require('../lib/Queue');
 const StackQueue = require('../lib/StackQueue');
 const AnimalShelter = require('../lib/AnimalShelter');
+const brackets = require('../lib/brackets');
 
 const stack = new Stack();
 const queue = new Queue();
@@ -140,10 +141,11 @@ describe("Stacks", () => {
     expect(animalShelter.front).toBeNull();
   });
 
-  it("Can successfully dequeue not pref in animalShelter", () => {
-    animalShelter.enqueue('snack');
-    let popItem = animalShelter.dequeue();
-    expect(popItem).toEqual(null);
+  it("Can successfully represent whether or not the brackets in the string are balanced", () => {
+  
+    expect(brackets('{([])}')).toEqual(true);
+    expect(brackets('{([)}')).toEqual(false);
+    expect(brackets('{([dhfjgkhj])}')).toEqual(true);
   });
 
 
