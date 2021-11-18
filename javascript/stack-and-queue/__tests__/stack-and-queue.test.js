@@ -141,12 +141,22 @@ describe("Stacks", () => {
     expect(animalShelter.front).toBeNull();
   });
 
-  it("Can successfully represent whether or not the brackets in the string are balanced", () => {
+  it("Can successfully represent whether the brackets in the string are balanced", () => {
   
-    expect(brackets('{([])}')).toEqual(true);
-    expect(brackets('{([)}')).toEqual(false);
-    expect(brackets('{([dhfjgkhj])}')).toEqual(true);
+    expect(brackets('{}')).toEqual(true);
+    expect(brackets('{}(){}')).toEqual(true);
+    expect(brackets('()[[Extra Characters]]')).toEqual(true);
+    expect(brackets('(){}[[]]')).toEqual(true);
+    expect(brackets('{}{Code}[Fellows](())')).toEqual(true);
+  
+    
   });
-
+  it("Can successfully represent whether the brackets in the string are not balanced", () => {
+  
+    expect(brackets('[({}]')).toEqual(false);
+    expect(brackets('(](')).toEqual(false);
+    expect(brackets('{(})')).toEqual(false);
+    
+  });
 
 });
