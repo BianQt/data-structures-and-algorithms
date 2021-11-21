@@ -4,7 +4,7 @@ const BinarySearchTree = require("../lib/BinarySearchTree");
 const BinaryTree = require("../lib/BinaryTree");
 
 let tree1 = new BinarySearchTree();
-
+let tree2 = new BinarySearchTree();
 describe("Binary Search Tree & Traversing", () => {
   it("Can successfully instantiate an empty tree", () => {
     expect(tree1.root).toEqual(null);
@@ -45,5 +45,8 @@ describe("Binary Search Tree & Traversing", () => {
 describe("Binary Tree Getting The Maximum Value", () => {
   it("Can successfully return the maximum value of the tree", () => {
     expect(tree1.getMax()).toEqual(15);
+  });
+  it("Can successfully return null if there is no root", () => {
+    expect(tree2.getMax()).toEqual(null);
   });
 });

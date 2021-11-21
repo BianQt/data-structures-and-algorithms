@@ -48,6 +48,7 @@ class BinaryTree {
 
   getMax() {
     let max = 0;
+    if(!this.root){return null}
     let current = this.root;
     function _maxVal(node) {
       if (node.value > max) {
