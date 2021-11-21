@@ -1,41 +1,41 @@
 "use strict";
 
-const Node = require("./Node");
+// const Node = require("./Node");
 
 class BinaryTree {
   constructor() {
     this.root = null;
   }
 
-  push(val) {
-    let newNode = new Node(val);
+  // push(val) {
+  //   let newNode = new Node(val);
 
-    if (!this.root) {
-      this.root = newNode;
-    } else {
-      let current = this.root;
-      while (current) {
-        if (val >= current.value) {
-          if (current.right === null) {
-            current.right = newNode;
-            break;
-          } else {
-            console.log("right");
-            current = current.right;
-          }
-        } else {
-          if (current.left === null) {
-            current.left = newNode;
-            break;
-          } else {
-            console.log("left");
-            current = current.left;
-          }
-        }
-      }
-    }
-    return this;
-  }
+  //   if (!this.root) {
+  //     this.root = newNode;
+  //   } else {
+  //     let current = this.root;
+  //     while (current) {
+  //       if (val >= current.value) {
+  //         if (current.right === null) {
+  //           current.right = newNode;
+  //           break;
+  //         } else {
+  //           console.log("right");
+  //           current = current.right;
+  //         }
+  //       } else {
+  //         if (current.left === null) {
+  //           current.left = newNode;
+  //           break;
+  //         } else {
+  //           console.log("left");
+  //           current = current.left;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return this;
+  // }
 
   DFSPreOrder() {
     let data = [];
