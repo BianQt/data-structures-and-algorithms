@@ -6,7 +6,6 @@ const BinaryTree = require("../lib/BinaryTree");
 let tree1 = new BinarySearchTree();
 
 describe("Binary Search Tree & Traversing", () => {
-  
   it("Can successfully instantiate an empty tree", () => {
     expect(tree1.root).toEqual(null);
   });
@@ -30,7 +29,6 @@ describe("Binary Search Tree & Traversing", () => {
     expect(tree1.find(11)).toEqual(false);
   });
 
-
   it("Can successfully return a collection from a preorder traversal", () => {
     expect(tree1.DFSPreOrder()).toEqual([10, 7, 5, 9, 15]);
   });
@@ -42,5 +40,10 @@ describe("Binary Search Tree & Traversing", () => {
   it("Can successfully return a collection from a postorder traversal", () => {
     expect(tree1.DFSPostOrder()).toEqual([5, 9, 7, 15, 10]);
   });
+});
 
+describe("Binary Tree Getting The Maximum Value", () => {
+  it("Can successfully return the maximum value of the tree", () => {
+    expect(tree1.getMax()).toEqual(15);
+  });
 });
