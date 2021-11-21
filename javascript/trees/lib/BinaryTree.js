@@ -7,36 +7,6 @@ class BinaryTree {
     this.root = null;
   }
 
-  // push(val) {
-  //   let newNode = new Node(val);
-
-  //   if (!this.root) {
-  //     this.root = newNode;
-  //   } else {
-  //     let current = this.root;
-  //     while (current) {
-  //       if (val >= current.value) {
-  //         if (current.right === null) {
-  //           current.right = newNode;
-  //           break;
-  //         } else {
-  //           console.log("right");
-  //           current = current.right;
-  //         }
-  //       } else {
-  //         if (current.left === null) {
-  //           current.left = newNode;
-  //           break;
-  //         } else {
-  //           console.log("left");
-  //           current = current.left;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   return this;
-  // }
-
   DFSPreOrder() {
     let data = [];
 
@@ -75,7 +45,26 @@ class BinaryTree {
     return data;
   }
 
- 
+
+  getMax() {
+    let max = 0;
+    if(!this.root){return null}
+    let current = this.root;
+    function _maxVal(node) {
+      if (node.value > max) {
+        max = node.value;
+      }
+      if (node.left) {
+        _maxVal(node.left);
+      }
+      if (node.right) {
+        _maxVal(node.right);
+      }
+    }
+    _maxVal(current);
+    return max;
+  }
+
 }
 
 module.exports = BinaryTree;
