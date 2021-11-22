@@ -4,22 +4,22 @@
 
 ## Challenge
 <!-- Description of the challenge -->
-Implement a method that finds the Maximum Value in a Binary Tree
+A function that return list of all values in the tree, in the order they were encountered
 
 ## WhiteBoard
-![wb](./wb.jpg)
+![wb1](./wb.jpg)
 
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-Find maximum value
-    - Arguments: none
-    - Returns: number
+Breadth first
+  - Arguments: tree
+  - Return: list of all values in the tree, in the order they were encountered
 
 ## API
 <!-- Description of each method publicly available in each of your trees -->
 ### Binary Tree
-- ```getMax```
+- ```bfs```
 
 
 
