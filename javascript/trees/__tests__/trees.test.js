@@ -3,6 +3,7 @@
 const BinarySearchTree = require("../lib/BinarySearchTree");
 const BinaryTree = require("../lib/BinaryTree");
 const breadthFirst = require("../lib/breadthFirst");
+const fizzBuzz = require("../lib/fizzBuzz");
 
 let tree1 = new BinarySearchTree();
 let tree2 = new BinarySearchTree();
@@ -56,6 +57,16 @@ describe("Binary Tree Getting The Maximum Value", () => {
 describe("Breath First Getting The List in order that tree were encountered", () => {
   it("Can successfully return the list in the right order", () => {
     expect(breadthFirst(tree1)).toEqual([10, 7, 15, 5, 9]);
+  });
+  it("Can successfully return null if there is no root", () => {
+    expect(breadthFirst(tree2)).toEqual(null);
+  });
+});
+
+
+describe("FizzBuzz Getting The List in order that tree were encountered with the right key", () => {
+  it("Can successfully return the list in the right order", () => {
+    expect(fizzBuzz(tree1)).toEqual(['Buzz', '7', 'FizzBuzz', 'Buzz', 'Fizz']);
   });
   it("Can successfully return null if there is no root", () => {
     expect(breadthFirst(tree2)).toEqual(null);
