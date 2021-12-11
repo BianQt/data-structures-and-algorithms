@@ -1,55 +1,77 @@
-"use strict";
+'use strict';
 
-const Node = require("./Node");
-const BinaryTree = require("./BinaryTree");
+class HashMap {
+  constructor(size){
+    this.keyMap = new Array(size);
+  }
 
-class BinarySearchTree extends BinaryTree {
-  insert(val) {
-    let newNode = new Node(val);
-    if (!this.root) {
-      this.root = newNode;
-    } else {
-      let current = this.root;
-      while (current) {
-        if (val >= current.value) {
-          if (current.right === null) {
-            current.right = newNode;
-            break;
-          } else {
-            console.log("right");
-            current = current.right;
-          }
-        } else {
-          if (current.left === null) {
-            current.left = newNode;
-            break;
-          } else {
-            console.log("left");
-            current = current.left;
+  _hash(key) {
+    let total = 0;
+    let WEIRD_PRIME = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      let char = key[i];
+      let value = char.charCodeAt(0) - 96
+      total = (total * WEIRD_PRIME + value) % this.keyMap.length;
+    }
+    return total;
+  }
+  set(key,value){
+    let index = this._hash(key);
+    if(!this.keyMap[index]){
+      this.keyMap[index] = [];
+    }
+    this.keyMap[index].push([key, value]);
+  }
+  get(key){
+    let index = this._hash(key);
+    if(this.keyMap[index]){
+      for(let i = 0; i < this.keyMap[index].length; i++){
+        if(this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1];
+        }
+      }
+    }
+    return undefined;
+  }
+
+  contain(key){
+    let index = this._hash(key);
+    if(this.keyMap[index]){
+      for(let i = 0; i < this.keyMap[index].length; i++){
+        if(this.keyMap[index][i][0] === key) {
+          return !!this.keyMap[index][i][1];
+        }
+      }
+    }
+    return false;
+  }
+  keys(){
+    let keysArr = [];
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!keysArr.includes(this.keyMap[i][j][0])){
+            keysArr.push(this.keyMap[i][j][0])
           }
         }
       }
     }
-    return this;
+    return keysArr;
   }
-
-  find(val) {
-    if (!this.root) {
-      return false;
-    }
-    let current = this.root;
-    let found = false;
-    while (current && !found) {
-      if (val > current.value) {
-        current = current.right;
-      } else if (val < current.value) {
-        current = current.left;
-      } else {
-        found = true;
+  values(){
+    let valuesArr = [];
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!valuesArr.includes(this.keyMap[i][j][1])){
+            valuesArr.push(this.keyMap[i][j][1])
+          }
+        }
       }
     }
-    return found;
+    return valuesArr;
   }
 }
 
-module.exports = BinarySearchTree;
+
+module.exports = HashMap
