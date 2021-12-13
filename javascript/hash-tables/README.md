@@ -3,11 +3,14 @@
 
 ## Challenge
 <!-- Description of the challenge -->
-Find the first repeated word in a book.
-In other words, write a function called repeated word that finds the first word to occur more than once in a string.
+Find common values in 2 binary trees.
+In other words, write a function that takes two binary trees as parameters and Hashmap implementation as a part of the algorithm, return a set of values found in both trees.
+* Input ==> Two Trees
+* Output ==> Array
+
 
 ## Whiteboard Process
-![whiteboard](./chall1.jpg)
+![whiteboard](./chall2.jpg)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
@@ -15,5 +18,5 @@ In other words, write a function called repeated word that finds the first word 
 
 ## API
 <!-- Description of each method publicly available to your Linked List -->
-- ```repeatedWord ``` : return the first repeated word.
+- ```intersection``` : return the first repeated word.
 

@@ -1,7 +1,30 @@
 "use strict";
 
 const HashMap = require("../lib/HashTable");
+const BinarySearchTree =require('../../trees/lib/BinarySearchTree');
 const repeatedWord = require('../lib/repeatedWord');
+const intersection = require('../treeIntersection/intersection')
+
+let tree1 = new BinarySearchTree();
+let tree2 = new BinarySearchTree();
+let tree3 = new BinarySearchTree();
+let tree4 = new BinarySearchTree();
+
+
+tree1.insert(10);
+tree1.insert(15);
+tree1.insert(20);
+tree1.insert(5);
+tree1.insert(11);
+
+tree2.insert(3);
+tree2.insert(2);
+tree2.insert(15);
+tree2.insert(11);
+tree2.insert(1);
+
+tree3.insert(50);
+tree3.insert(65);
 
 
 let hashTable = new HashMap(50);
@@ -61,4 +84,16 @@ describe("First Repeated Word", () => {
   });
 
 
+});
+
+describe("Trees intersection", () => {
+  it("Check if trees has intersection ", () => {
+    expect(intersection(tree1,tree2)).toEqual([15,11]);
+  });
+  it("Check if trees has no intersection ", () => {
+    expect(intersection(tree1,tree3)).toEqual(null);
+  });
+  it("Check if one tree has no root ", () => {
+    expect(intersection(tree1,tree4)).toEqual(null);
+  });
 });
