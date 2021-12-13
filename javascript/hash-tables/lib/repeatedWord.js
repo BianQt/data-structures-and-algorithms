@@ -1,18 +1,18 @@
-'use strict';
+"use strict";
 const HashMap = require("./HashTable");
 
 const repeatedWord = (str) => {
-  const hashTable = new HashMap(1024);
-  let splittedWords = str
+  const hashTable = new HashMap(500);
+  let wordsArr = str
     .toLowerCase()
     .replace(/[^((a-z)& )]/gm, "")
     .split(" ");
-  console.log(splittedWords);
-  for (let i = 0; i < splittedWords.length; i++) {
-    const index = hashTable._hash(splittedWords[i]);
-    if (hashTable.get[index]) {
-      return splittedWords[i];
-    } else hashTable.set(splittedWords[i], 1);
+  if (wordsArr.length === 1 &&  wordsArr[0]==="") return null;
+  console.log(wordsArr);
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (hashTable.get(wordsArr[i]) !== undefined) {
+      return wordsArr[i];
+    } else hashTable.set(wordsArr[i], 1);
   }
 };
 module.exports = repeatedWord;
