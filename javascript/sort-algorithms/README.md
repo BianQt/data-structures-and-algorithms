@@ -1,8 +1,8 @@
 
 ## Challenge
 <!-- Description of the challenge -->
-Implement Merge Sort.
+Implement Quick Sort.
 
 ## White-Board
-![whiteboard](./chall27.jpg)
+![whiteboard](./chall28.jpg)
 
