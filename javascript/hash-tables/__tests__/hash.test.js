@@ -3,35 +3,40 @@
 const HashMap = require("../lib/HashTable");
 const BinarySearchTree =require('../../trees/lib/BinarySearchTree');
 const repeatedWord = require('../lib/repeatedWord');
-const intersection = require('../treeIntersection/intersection')
+const intersection = require('../treeIntersection/intersection');
+const leftJoin = require('../lib/left-join');
 
 let tree1 = new BinarySearchTree();
 let tree2 = new BinarySearchTree();
 let tree3 = new BinarySearchTree();
 let tree4 = new BinarySearchTree();
 
-
-tree1.insert(10);
-tree1.insert(15);
-tree1.insert(20);
-tree1.insert(5);
-tree1.insert(11);
-
-tree2.insert(3);
-tree2.insert(2);
-tree2.insert(15);
-tree2.insert(11);
-tree2.insert(1);
-
-tree3.insert(50);
-tree3.insert(65);
-
+tree1.insert(10);tree1.insert(15);tree1.insert(20);tree1.insert(5);tree1.insert(11);
+tree2.insert(3);tree2.insert(2);tree2.insert(15);tree2.insert(11);tree2.insert(1);
+tree3.insert(50);tree3.insert(65);
 
 let hashTable = new HashMap(50);
+
 let str1 = "Once upon a time, there was a brave princess who...";
 let str2 = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...";
 let str3 ="It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."
 let str4 = "//-"
+
+let hash1 = new HashMap(50);
+let hash2 = new HashMap(50);
+let hash3 = new HashMap(50);
+
+hash1.set('fond','enamored');
+hash1.set('wrath','anger');
+hash1.set('diligent','employed');
+hash1.set('outifit','garb');
+
+hash2.set('fond','averse');
+hash2.set('wrath','delight');
+hash2.set('diligent','idle');
+hash2.set('flow','jam');
+
+
 
 describe("Hash Map", () => {
   it("Adding a key/value to your hashtable results in the value being in the data structure", () => {
@@ -95,5 +100,18 @@ describe("Trees intersection", () => {
   });
   it("Check if one tree has no root ", () => {
     expect(intersection(tree1,tree4)).toEqual(null);
+  });
+});
+
+
+describe("Left Join", () => {
+  it("Check if successfully return the expected output ", () => {
+    expect(leftJoin(hash1,hash2)).toEqual([['wrath','anger','delight'],['diligent','employed','idle'],['outifit','garb',null],['fond','enamored','averse']]);
+  });
+  it("Check if successfully return if there is no left hash empty ", () => {
+    expect(leftJoin(hash3,hash2)).toEqual(null);
+  });
+  it("Check if successfully return null for all antonyms ", () => {
+    expect(leftJoin(hash1,hash3)).toEqual([['wrath','anger',null],['diligent','employed',null],['outifit','garb',null],['fond','enamored',null]]);
   });
 });

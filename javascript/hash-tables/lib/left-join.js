@@ -13,7 +13,7 @@ module.exports = (hash1, hash2) => {
 
   for (let i = 0; i < hash1Keys.length; i++) {
     if (hash2.get(hash1Keys[i]) !== undefined) {
-      hash2Values.push(hash1.get(hash1Keys[i]));
+      hash2Values.push(hash2.get(hash1Keys[i]));
     } else {
       hash2Values.push(null);
     }
@@ -21,5 +21,6 @@ module.exports = (hash1, hash2) => {
   for (let i = 0; i < hash1Keys.length; i++) {
     outputs.push([hash1Keys[i], hash1Values[i], hash2Values[i]]);
   }
-  return outputs;
+  if (outputs.length) return outputs;
+  return null;
 };
