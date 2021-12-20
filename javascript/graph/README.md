@@ -26,11 +26,18 @@ Implement a Graph. The graph should be represented as an adjacency list, and sho
    - Arguments: none
    - Returns the total number of nodes in the graph
 
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
+* add node : I added the new node directly to the map with time & space complexity of o(1).
+* add edge : I added the new edge directly to the map element with time & space complexity of o(1).
+* get neighbors : Get the node directly from the map  time & space complexity of o(1).
+* get weight : Get the node directly from the map then loop through its edges and check if it's contain the other node and return true. Time complexity of o(n) & space complexity of o(1).
+* size: Get the size of the map using a build-in method with time & space complexity of o(1).
 ## API
 <!-- Description of each method publicly available in your Graph -->
 * ```add node```
 * ```add edge```
-* ```get nodes```
-* ```get neighbors```
+* ```getNeighbors```
+* ```getWeight```
 * ```size```
